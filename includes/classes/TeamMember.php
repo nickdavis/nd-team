@@ -26,6 +26,9 @@ class TeamMember {
 					'editor'
 				],
 				'menu_icon'          => 'dashicons-businessman',
+				'labels'             => [
+					'menu_name' => 'Team',
+				]
 			],
 			[
 				// Overrides the base names used for labels.

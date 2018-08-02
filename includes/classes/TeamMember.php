@@ -25,7 +25,7 @@ class TeamMember {
 				'publicly_queryable' => false,
 				'supports'           => [
 					'title',
-					'editor'
+					'thumbnail'
 				],
 				'menu_icon'          => 'dashicons-businessman',
 				'labels'             => [

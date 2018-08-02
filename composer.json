@@ -1,0 +1,29 @@
+{
+  "name": "nickdavis/nd-team",
+  "description": "WordPress plugin which creates a Team custom post type",
+  "type": "wordpress-plugin",
+  "authors": [
+    {
+      "name": "Nick Davis",
+      "email": "inbox@nickdavis.co"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "htmlburger/carbon-fields": "2.1.*",
+    "johnbillion/extended-cpts": "^4.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "NickDavis\\Team\\": "includes/classes/"
+    }
+  },
+  "require-dev": {
+    "10up/wp_mock": "dev-dev",
+    "10up/phpcs-composer": "dev-master"
+  },
+  "scripts": {
+    "lint": "phpcs .",
+    "lint-fix": "phpcbf ."
+  }
+}

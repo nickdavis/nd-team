@@ -21,6 +21,7 @@ function setup() {
 
 	add_action( 'init', $n( 'i18n' ) );
 	add_action( 'init', $n( 'init' ) );
+	add_action( 'after_setup_theme', $n( 'load_carbon_fields' ) );
 	add_action( 'wp_enqueue_scripts', $n( 'scripts' ) );
 	add_action( 'wp_enqueue_scripts', $n( 'styles' ) );
 	add_action( 'admin_enqueue_scripts', $n( 'admin_scripts' ) );
@@ -248,4 +249,15 @@ function mce_css( $stylesheets ) {
 	return $stylesheets . ND_TEAM_URL . ( ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ?
 			'assets/css/frontend/editor-style.css' :
 			'dist/css/editor-style.min.css' );
+}
+
+/**
+ * Loads the Carbon Fields custom fields library.
+ *
+ * @url https://carbonfields.net/docs/carbon-fields-quickstart/
+ */
+function load_carbon_fields() {
+	\Carbon_Fields\Carbon_Fields::boot();
+
+	( new TeamMember )->register_fields();
 }

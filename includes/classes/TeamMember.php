@@ -11,6 +11,8 @@
 
 namespace NickDavis\Team;
 
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
 
 class TeamMember {
 	public function register() {
@@ -37,5 +39,27 @@ class TeamMember {
 				'slug'     => 'team',
 			]
 		);
+	}
+
+	public function register_fields() {
+		add_action( 'carbon_fields_register_fields', [ $this, 'register_position_field' ] );
+	}
+
+	/**
+	 * Registers the expert member Position field with Carbon Fields.
+	 *
+	 * @see https://carbonfields.net/docs/containers-usage
+	 * @see https://carbonfields.net/docs/fields-usage
+	 *
+	 * @since 0.1.0
+	 */
+	public function register_position_field() {
+		Container::make( 'post_meta', 'Position' )
+		         ->where( 'post_type', '=', 'nd-team' )
+		         ->set_context( 'carbon_fields_after_title' )
+		         ->add_fields( array(
+			         Field::make( 'text', 'nd_team_position', '' )
+			              ->set_help_text( 'e.g. CEO' )
+		         ) );
 	}
 }

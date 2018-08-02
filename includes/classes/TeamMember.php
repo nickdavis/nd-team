@@ -42,7 +42,10 @@ class TeamMember {
 	}
 
 	public function register_fields() {
-		add_action( 'carbon_fields_register_fields', [ $this, 'register_position_field' ] );
+		add_action( 'carbon_fields_register_fields', [
+			$this,
+			'register_details_fields'
+		] );
 	}
 
 	/**
@@ -53,13 +56,15 @@ class TeamMember {
 	 *
 	 * @since 0.1.0
 	 */
-	public function register_position_field() {
-		Container::make( 'post_meta', 'Position' )
+	public function register_details_fields() {
+		Container::make( 'post_meta', 'Details' )
 		         ->where( 'post_type', '=', 'nd-team' )
 		         ->set_context( 'carbon_fields_after_title' )
 		         ->add_fields( array(
-			         Field::make( 'text', 'nd_team_position', '' )
-			              ->set_help_text( 'e.g. CEO' )
+			         Field::make( 'text', 'nd_team_position', 'Position' )
+			              ->set_help_text( 'e.g. Head of Brand' ),
+			         Field::make( 'text', 'nd_team_department', 'Department' )
+			              ->set_help_text( 'e.g. Marketing' )
 		         ) );
 	}
 }

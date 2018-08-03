@@ -22,13 +22,13 @@ function setup() {
 	add_action( 'init', $n( 'i18n' ) );
 	add_action( 'init', $n( 'init' ) );
 	add_action( 'after_setup_theme', $n( 'load_carbon_fields' ) );
-	add_action( 'wp_enqueue_scripts', $n( 'scripts' ) );
-	add_action( 'wp_enqueue_scripts', $n( 'styles' ) );
-	add_action( 'admin_enqueue_scripts', $n( 'admin_scripts' ) );
-	add_action( 'admin_enqueue_scripts', $n( 'admin_styles' ) );
+//	add_action( 'wp_enqueue_scripts', $n( 'scripts' ) );
+//	add_action( 'wp_enqueue_scripts', $n( 'styles' ) );
+//	add_action( 'admin_enqueue_scripts', $n( 'admin_scripts' ) );
+//	add_action( 'admin_enqueue_scripts', $n( 'admin_styles' ) );
 
 	// Editor styles. add_editor_style() doesn't work outside of a theme.
-	add_filter( 'mce_css', $n( 'mce_css' ) );
+//	add_filter( 'mce_css', $n( 'mce_css' ) );
 
 	do_action( 'nd_team_loaded' );
 }
